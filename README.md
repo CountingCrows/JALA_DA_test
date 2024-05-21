@@ -75,3 +75,20 @@ Kita ingin mengetahui berapa hari dalam satu siklus penuh untuk tiap _id_, maka 
 ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/6dda215e-832d-46bb-895f-7d0ed55b8068)
 
 Setelah mengubah _data type_ kolom _started_at & finished_at_ ke _datetime_, kita bisa mengurangi kolom _finished_at dan started_at_ untuk mendapatkan jumlah hari dalam masing-masing id.
+
+### harvests dataset
+Data harvests adalah salah satu data yang memiliki banyak missing values, oleh karena itu kita ingin juga mencari _outliers_ dalam dataset tersebut dan kemudian menangani _outliers_ dengan fungsi drop. Adapun penjelasan mengenai data ini bahwa bila **size** dalam satu _cycle_id_ adalah 100, maka dalam tiap 1 kg terdapat 100 ekor udang. 
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/cba39074-64b1-430c-8fd2-bd6ac1d6f2b6)
+
+_Scatter Plot_ tersebut menunjukkan bahwa outliers dalam _size_ diatas nilai 400 dan _weight_ diatas nilai 80.000. Oleh karena itu kita ingin _drop_ outliers yang ada di kolom-kolom tersebut. Menggunakan z-score dan nilai absolut 3 untuk menentukan outlier dari tiap kolom kemudian menggunakan fungsi drop.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/b01a6499-034e-4753-ae84-350f209abdca)
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/cff123d1-cee2-4654-85e6-6e591ba391b3)
+
+Setelah menghapuskan data outlier dari kolom-kolom tersebut, kita mendapatkan data yang lebih terdistribusi.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/9b55823a-ebc7-4b3b-8f7b-d10b51440c2f)
+
+### ponds dataset
