@@ -23,6 +23,8 @@ Terdapat 8 dataset yang disediakan untuk dilakukan analisis, diantaranya:
 - measurements = berisi data untuk menunjukkan faktor apa saja yang mempengaruhi kualitas air.
 
 ## Exploratory Data Analysis
+
+### NaN Values
 Sebelum menjawab pertanyaan yang ada di atas, kita akan mencari apakah data-data yang disediakan memiliki NaN values, terutama untuk data _farms, cycles, ponds, feeds, harvests, fasting, dan sampling_. 
 
 ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/2af25554-5b33-4c9a-88cf-5e98a9e476da)
@@ -41,8 +43,35 @@ Sebelum menjawab pertanyaan yang ada di atas, kita akan mencari apakah data-data
 
 - harvests
 
+  ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/ac9528ff-9583-44a0-a687-960301becded)
+
+
 - fasting
+
+   ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/e3e136ab-7643-431c-8fd0-1b0099677661)
 
 - feeds
 
+   ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/b695cbe2-3c6e-4994-9fba-d3aa65a37099)
+
 - samplings
+
+   ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/8b88e91c-2f19-43a6-9a32-281b33d73eab)
+
+Adanya beberapa kolom yang mengandung NaN value di masing-masing dataset, maka kita akan menangani nilai yang hilang dengan fungsi drop sehingga data bisa segera diolah untuk analisis.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/95362e93-709d-487e-9907-19d2ddcb547d)
+
+Kami ingin mendapatkan wawasan dari kumpulan data dengan mengetahui Tingkat Kelangsungan Hidup (SR), Pertambahan Rata-Rata Harian (ADG), dan Tingkat Konversi Makanan (FCR) untuk membedakan apakah ada perbedaan kinerja budidaya berdasarkan siklus, kolam, dan tambak.
+
+### cycles dataset
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/2c07d8cf-7a1a-4d50-8473-40d1df156731)
+
+Kita ingin mengetahui berapa hari dalam satu siklus penuh untuk tiap _id_, maka kita harus menghitungnya terlebih dahulu.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/0b54b7d5-269a-4e8d-b6c9-b364fb0346e8)
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/6dda215e-832d-46bb-895f-7d0ed55b8068)
+
+Setelah mengubah _data type_ kolom _started_at & finished_at_ ke _datetime_, kita bisa mengurangi kolom _finished_at dan started_at_ untuk mendapatkan jumlah hari dalam masing-masing id.
