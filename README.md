@@ -104,5 +104,43 @@ Pada data farms, kita ingin merubah kolom bernama "id" menjadi "farm_id" agar sa
 ## Calculating Survival Rate (SR)
 **Survival Rate (SR)** digunakan untuk mengetahui persentasi kelangsungan hidup benur udang yang ditebar dalam 1 siklus budidaya. Nilai Ideal Survival Rate (SR) adalah 80% -90%, meskipun pada kenyataannya banyak tambak di Indonesia mencapai SR 70%-80%.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/59eb042d-c965-4696-b0b1-7c77118708f2/d2fb4b91-0d82-44b4-b875-46862bb0cbd0/Untitled.png) 
+**Rumus menghitung SR** = (populasi udang (ekor)/jumlah tebar(ekor)) * 100
 
+- Kita akan menghitung jumlah populasi saat dipanen dengan cara
+Jumlah populasi = total bobot panen (kg) / ukuran (per kg)
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/584f52cd-ac49-4484-a49a-7bcd510aebc8)
+
+sehingga kita akan mendapatkan kolom baru dalam dataset _harvests_ berupa "total_pop"
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/d4318047-37b8-48eb-9158-fce0eecf5aba)
+
+Dari sini, kita akan menghitung jumlah populasi per "cycle_id" dan kita akan mengambil total populasi untuk setiap "cycle_id" pertama yang muncul.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/0542c66e-f391-40d1-9018-8dd52d0245e5)
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/00ce5d49-111d-448b-b430-ad8fe9712743)
+
+Kemudian kita akan menghitung **SR** tiap _cycle_id_ setelah panen dengan melakukan _merge_ pada dataset _cycles_ dengan _harvests_.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/c1ca706c-4f2c-41b6-b00b-d0b28a25e8d9)
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/0c27f43d-2b13-4647-88e5-63688b0d5353)
+
+Terlihat ada 352 baris yang menunjukkan bahwa kita mempunyai Survival Rate lebih dari 100%. Oleh karena itu, tindakan terbaik adalah mengecualikannya dari kumpulan data. dan karena kita ingin menetapkan **SR** tiap cycle_id makan kita akan menghapus duplicatnya, sehingga data nya menjadi 
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/c17eac34-0826-436b-ac21-967bfaf889ed)
+
+### Calculating Average Daily Gain (ADG)
+**Average Daily Gain (ADG)** adalah rata-rata penambahan berat harian udang dalam periode tertentu. ADG juga merupakan salah satu parameter untuk mengukur pertumbuhan udang. Dari nilai ADG, petambak dapat mengetahui pertumbuhan berat udang dalam waktu tertentu.
+
+**Rumus menghitung ADG** = (rata-rata berat akhir - rata-rata berat awal)/ umur udang(hari)
+Dari data samplings, kita akan mengelompokkan sampel berdasarkan cycle_id-nya dan menghitung bobot rata-rata.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/e73a6de1-5535-496e-805b-99a1237629a9)
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/311948de-b172-45df-adf4-7256132d6deb)
+
+Lalu kita akan menggabungkan data siklus dengan data pengambilan sampel sehingga bisa menghitung **ADG** tiap cycle. 
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/ac3bef69-fff6-4f18-802c-a699449c71fb)
