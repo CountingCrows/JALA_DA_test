@@ -24,4 +24,7 @@ Terdapat 8 dataset yang disediakan untuk dilakukan analisis, diantaranya:
 
 ## Exploratory Data Analysis
 Sebelum menjawab pertanyaan yang ada di atas, kita akan mencari apakah data-data yang disediakan memiliki NaN values, terutama untuk data _farms, cycles, ponds, feeds, harvests, fasting, dan sampling_. 
+
 ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/2af25554-5b33-4c9a-88cf-5e98a9e476da)
+
+
