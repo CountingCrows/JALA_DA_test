@@ -27,4 +27,18 @@ Sebelum menjawab pertanyaan yang ada di atas, kita akan mencari apakah data-data
 
 ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/2af25554-5b33-4c9a-88cf-5e98a9e476da)
 
+- farms
+  ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/2078f825-ed94-44dc-b007-774cd9f32904)
 
+- cycles
+  ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/99c8273d-8615-4c65-9166-7886395177f3)
+
+- ponds
+
+- harvests
+
+- fasting
+
+- feeds
+
+- samplings
