@@ -143,4 +143,60 @@ Dari data samplings, kita akan mengelompokkan sampel berdasarkan cycle_id-nya da
 
 Lalu kita akan menggabungkan data siklus dengan data pengambilan sampel sehingga bisa menghitung **ADG** tiap cycle. 
 
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/2c6928ca-d80a-4485-be73-2feec6a0f9f1)
+
 ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/ac3bef69-fff6-4f18-802c-a699449c71fb)
+
+### Calculating Feed Convertion Ratio (FCR)
+**Feed Convertion Ratio (FCR)** adalah rasio konversi pakan yang menjadi indikator efisiensi manajemen pakan selain waktu, frekuensi, pola pemberian, dan kualitas pakan itu sendiri. Nilai FCR yang rendah menandakan bahwa manajemen pakan yang diterapkan dan kualitas pakan yang diberikan sudah bagus. Nilai FCR yang tinggi mengindikasikan bahwa manajemen pakan yang diterapkan buruk.
+
+**Rumus menghitung FCR** = jumlah pakan total/biomassa
+
+Untuk menghitung FCR, kita ingin menggunakan _feeds_ dataset untuk mengetahui jumlah pakan yang diberikan untuk tiap _cycle_id_. 
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/b890160e-6f73-48c9-87c4-e3e721ef2694)
+
+Terdapat beberapa value yang negatif pada dataset ini, oleh karena itu kita ingin menghilangkan kuantitas yang mengandung nilai negatif dan juga memeriksa outlier karena kami memiliki nilai jumlah maksimum 423 kg.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/da440a17-6311-4010-b4fc-92264a31cc64)
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/c6e1d0f3-2db9-4b76-8fee-59d91e3f2b41)
+
+Menggunakan z-score dan nilai absolut 3 untuk menentukan outlier dari kolom "quantity" lalu menggunakan fungsi drop untuk menghilangkan outliernya.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/0240043b-779d-4d8c-ad9c-51bfde9186cf)
+
+Baru kita akan menghitung FCR dengan menentukan total_feed_per_cycle" terlebih dahulu.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/7bbd100d-7a97-4237-9255-72ee35a4dc5a)
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/1a61dec1-0e9f-4c41-bc23-cb4ea46c6e7c)
+
+Hasil table FCR akan seperti ini
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/e54c4b70-2b91-45a9-9fde-746c158c2ebf)
+
+## Merging the dataset of SR, ADG, and FCR
+Data _merged_df_ memiliki kolom-kolom 
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/d516b49f-48a4-468a-9dc2-26e922a3aa8a)
+
+Kemudian kita akan merge data ADG dan juga FCR ke dalam _merged_df_.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/d4d5ea89-4e7c-4c03-9dda-4ce342a6e0c3)
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/e4795369-4b84-44aa-8acb-428955a0c71b)
+
+Setelah mendapatkan SR, ADG, dan FCR dalam satu tabel, kita perlu memastikan bahwa tidak ada Null values didalam dataframe tersebut lalu menggunakan _drop_ untuk menghilangkan missing values dalam dataframe tersebut sehingga kita memiliki table 
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/a5043327-6cc0-4c79-b42d-d20be024da25)
+
+Kita juga bisa menambahkan kolom "provinsi" dan "wideness" sebelum kita menganalisisnya lebih lanjut.
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/4e77cab9-f2ac-4f61-812a-aa27ea19d88a)
+
+## Analysis
+Dalam analisis ini, kita akan menggunakan uji statistik ANNOVA untuk mengetahui seberapa signifikan antara SR, ADG, dan FCR bila dilihat dari kolam, lokasi tambak, dan siklus budidayanya.
+
+- ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/dd2004af-6cc6-404d-b5c3-261d9357798e)
+
