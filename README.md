@@ -92,3 +92,17 @@ Setelah menghapuskan data outlier dari kolom-kolom tersebut, kita mendapatkan da
 ![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/9b55823a-ebc7-4b3b-8f7b-d10b51440c2f)
 
 ### ponds dataset
+Pada data ponds, kita ingin mencari luas dari tiap kolam berdasarkan _length & width_ masing-masing kolam. 
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/f9165bd9-a683-4984-a33b-0a8677293729)
+
+### farms dataset
+Pada data farms, kita ingin merubah kolom bernama "id" menjadi "farm_id" agar saat kita merge dataset nya akan mudah untuk menunjukkan "province" masing-masing kolam. Lalu kita akan melakukan merge data farmns ke ponds berdasarkan farm_id nya sehingga mendapatkan table seperti ini
+
+![image](https://github.com/CountingCrows/JALA_DA_test/assets/85608120/b4b302d4-20bd-40df-8b79-06fc76cdd267)
+
+## Calculating Survival Rate (SR)
+**Survival Rate (SR)** digunakan untuk mengetahui persentasi kelangsungan hidup benur udang yang ditebar dalam 1 siklus budidaya. Nilai Ideal Survival Rate (SR) adalah 80% -90%, meskipun pada kenyataannya banyak tambak di Indonesia mencapai SR 70%-80%.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/59eb042d-c965-4696-b0b1-7c77118708f2/d2fb4b91-0d82-44b4-b875-46862bb0cbd0/Untitled.png) 
+
